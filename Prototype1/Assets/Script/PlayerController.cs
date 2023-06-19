@@ -17,5 +17,17 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector3.forward * Time.deltaTime * SPEED * forwardInput);
         transform.Rotate(Vector3.up, Time.deltaTime * TURN_SPEED * horizontalInput);
+
+        if (transform.position.y < -10)
+        {
+            if (GameObject.Find("Obstacles"))
+            {
+                Destroy(gameObject);
+            }
+            if (GameObject.Find("Player"))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
